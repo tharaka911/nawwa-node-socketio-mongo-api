@@ -25,3 +25,8 @@ npm run dev
 ```sh
 npm run start
 ```
+
+### generate random secreat
+```sh
+openssl rand -base64 32
+```
