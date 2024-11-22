@@ -1,2 +1,0 @@
-{"dd":{"service":"auth-service","span_id":"7257835375081648826","trace_id":"7257835375081648826","version":"1.0.0"},"level":"info","message":"login controller invoked","timestamp":"2024-11-22T07:27:38.970Z"}
-{"dd":{"service":"auth-service","span_id":"2123018328551755437","trace_id":"2123018328551755437","version":"1.0.0"},"level":"info","message":"logout controller invoked","timestamp":"2024-11-22T07:28:09.499Z"}
