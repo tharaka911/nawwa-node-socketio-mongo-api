@@ -1,9 +1,9 @@
 // const tracer = require('dd-trace').init()
-import tracer from "dd-trace";  
-tracer.init({
-  service: "auth-service",
-  logInjection: true,
-});
+// import tracer from "dd-trace";  
+// tracer.init({
+//   service: "auth-service",
+//   logInjection: true,
+// });
 
 import express from "express";
 import dotenv from "dotenv";
