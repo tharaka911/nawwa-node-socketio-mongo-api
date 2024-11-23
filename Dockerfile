@@ -12,7 +12,7 @@ FROM node:${NODE_VERSION}-alpine
 
 # Use production node environment by default.
 ENV NODE_ENV production
-
+ENV key=value
 
 WORKDIR /usr/src/app
 
@@ -36,4 +36,4 @@ COPY . .
 EXPOSE 9005
 
 # Run the application.
-CMD node index.js
+CMD ["node", "index.js"]
