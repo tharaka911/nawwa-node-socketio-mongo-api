@@ -68,6 +68,9 @@ USER node
 # Copy the rest of the source files into the image.
 COPY . .
 
+#copy the .env file to workdir
+COPY .env .
+
 # Expose the port that the application listens on.
 EXPOSE 9005
 
