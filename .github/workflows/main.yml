@@ -19,6 +19,9 @@ jobs:
         echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
         echo PORT=${{ vars.PORT }} >> .env
 
+    - name: List files in directory (debugging step)
+      run: ls -la
+
     - name: Build Docker image
       run: docker build -t kingitsolutionsteam/nawwa-test:${{ github.sha }} .
 
