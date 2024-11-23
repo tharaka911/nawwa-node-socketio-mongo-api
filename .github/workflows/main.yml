@@ -44,7 +44,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Pull Docker image
-      run: docker pull kingitsolutionsteam/nawwa-test:${{ github.sha }}
+      run: sudo docker pull kingitsolutionsteam/nawwa-test:${{ github.sha }}
         
     - name: Deploy Docker image
       run: |
