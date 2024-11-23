@@ -185,6 +185,12 @@
 		{
 			"key": "base_url",
 			"value": "http://localhost:9005",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "base_url",
+			"value": "https://test1.nawwa.xyz",
 			"type": "string"
 		}
 	]
