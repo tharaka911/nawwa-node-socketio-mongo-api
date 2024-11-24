@@ -69,7 +69,7 @@ USER node
 COPY . .
 
 #copy the .env file to workdir
-COPY .env .
+#COPY .env .
 
 # Expose the port that the application listens on.
 EXPOSE 9005
