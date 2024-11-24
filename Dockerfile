@@ -51,6 +51,16 @@ FROM node:${NODE_VERSION}-alpine
 # Use production node environment by default.
 ENV NODE_ENV=production
 
+# Define build arguments
+ARG JWT_SECRET
+ARG MONGO_URI
+ARG PORT
+
+# Set environment variables
+ENV JWT_SECRET=$JWT_SECRET
+ENV MONGO_URI=$MONGO_URI
+ENV PORT=$PORT
+
 WORKDIR /usr/src/app
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
