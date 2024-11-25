@@ -5,16 +5,6 @@ FROM node:${NODE_VERSION}-alpine
 # Use production node environment by default.
 ENV NODE_ENV=production
 
-# Define build arguments
-ARG JWT_SECRET
-ARG MONGO_URI
-ARG PORT
-
-# Set environment variables
-ENV JWT_SECRET=$JWT_SECRET
-ENV MONGO_URI=$MONGO_URI
-ENV PORT=$PORT
-
 WORKDIR /usr/src/app
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
@@ -32,8 +22,9 @@ USER node
 # Copy the rest of the source files into the image.
 COPY . .
 
-#copy the .env file to workdir
-#COPY .env .
-
 # Expose the port that the application listens on.
 EXPOSE 9005
+
+# Run the application
+CMD ["node", "index.js"]
+
