@@ -13,6 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Create .env file
+      run: |
+        echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
+        echo MONGO_URI=${{ secrets.MONGO_URI }} >> .env
+        echo PORT=${{ vars.PORT }} >> .env
+
     - name: Show project directory
       run: ls -al
 
