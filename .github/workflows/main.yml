@@ -13,6 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Show project directory
+      run: ls -al
+
+    - name: Show .env file contents
+      run: cat .env
+
     - name: Build Docker image
       run: docker build -t kingitsolutionsteam/nawwa-test:${{ github.sha }} .
 
