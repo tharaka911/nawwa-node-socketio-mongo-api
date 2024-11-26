@@ -32,3 +32,6 @@ yarn-error.log
 
 #logs
 logs/app.log
+
+#site24-config
+apminsightnode.json
