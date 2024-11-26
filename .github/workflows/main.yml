@@ -15,14 +15,14 @@ jobs:
 
     - name: Create .env file
       run: |
-        echo MONGO_URI=${{ secrets.MONGO_URI }} >> .env
         echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
+        echo MONGO_URI=${{ secrets.MONGO_URI }} >> .env
         echo PORT=${{ vars.PORT }} >> .env
 
-    - name: List files in directory (debugging step)
-      run: ls -la
+    - name: Show project directory
+      run: ls -al
 
-    - name: Display .env file contents
+    - name: Show .env file contents
       run: cat .env
 
     - name: Build Docker image
@@ -37,12 +37,10 @@ jobs:
     - name: Push Docker image to Docker Hub
       run: docker push kingitsolutionsteam/nawwa-test:${{ github.sha }}
 
-
   deploy:
     runs-on: nawwa-runner
-    needs:  build-and-push
+    needs: build-and-push
     steps:
-
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
@@ -51,9 +49,6 @@ jobs:
 
     - name: Pull Docker image
       run: sudo docker pull kingitsolutionsteam/nawwa-test:${{ github.sha }}
-        
-    - name: Deploy Docker image
-      run: |
-        sudo docker run -d -p ${{ vars.PORT }}:9005 kingitsolutionsteam/nawwa-test:${{ github.sha }}
 
-        
+    - name: Deploy Docker image
+      run: sudo docker run -d -p ${{ vars.PORT }}:9005 kingitsolutionsteam/nawwa-test:${{ github.sha }}
