@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.758.0",
     "apminsight": "^4.3.1",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.7",
