@@ -35,4 +35,4 @@ jobs:
       - name: Display live PM2 logs for 1 minute
         run: |
           cd /var/www/html/nawwa-node-socketio-mongo-api
-          timeout 30 sudo pm2 logs poc
+          (sudo pm2 logs poc &) && sleep 60 && sudo pkill -f "pm2 logs poc"
