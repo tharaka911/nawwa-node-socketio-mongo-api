@@ -1,0 +1,38 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Adding new code changes
+        run: cd /var/www/html/nawwa-node-socketio-mongo-api && sudo git pull 
+
+      - name: Install dependencies
+        run: cd /var/www/html/nawwa-node-socketio-mongo-api && sudo npm install
+
+      - name: Delete existing .env file
+        run: |
+          if [ -f /var/www/html/nawwa-node-socketio-mongo-api/.env ]; then
+            sudo rm /var/www/html/nawwa-node-socketio-mongo-api/.env
+          fi
+
+      - name: Create .env file dynamically
+        run: |
+          cd /var/www/html/nawwa-node-socketio-mongo-api
+          echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
+          echo MONGO_URI=${{ secrets.MONGO_URI }} >> .env
+          echo PORT=${{ vars.PORT }} >> .env
+
+      - name: Restart PM2 process
+        run: cd /var/www/html/nawwa-node-socketio-mongo-api && sudo pm2 restart poc --update-env
+         
+
+
+
+
