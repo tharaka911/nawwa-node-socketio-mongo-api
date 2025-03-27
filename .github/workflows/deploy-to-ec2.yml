@@ -12,10 +12,7 @@ jobs:
     steps:
       - name: Adding new code changes
         run: cd /var/www/html/nawwa-node-socketio-mongo-api && sudo git pull 
-
-      - name: Install dependencies
-        run: cd /var/www/html/nawwa-node-socketio-mongo-api && sudo npm install
-
+   
       - name: Delete existing .env file
         run: |
           if [ -f /var/www/html/nawwa-node-socketio-mongo-api/.env ]; then
@@ -29,6 +26,9 @@ jobs:
           echo MONGO_URI=${{ secrets.MONGO_URI }} >> .env
           echo PORT=${{ vars.PORT }} >> .env
 
+      - name: Install dependencies
+        run: cd /var/www/html/nawwa-node-socketio-mongo-api && sudo npm install
+  
       - name: Restart PM2 process
         run: cd /var/www/html/nawwa-node-socketio-mongo-api && sudo pm2 restart poc --update-env
          
