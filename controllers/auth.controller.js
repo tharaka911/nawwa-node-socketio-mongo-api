@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import generateTokenAndSetCookie from "../utils/generateToken.js";
-import getSecret from "../utils/awsSecrerts.js";
+// import getSecret from "../utils/awsSecrerts.js";
 
 import { logger } from "../logs/logger.js";
 
@@ -9,8 +9,8 @@ export const signup = async (req, res) => {
   console.log("signup controller invoked");
   logger.info("signup controller invoked");
 
-  const secret = await getSecret();
-  console.log("Using Secret in login:", secret);
+  // const secret = await getSecret();
+  // console.log("Using Secret in login:", secret);
 
   try {
     const { fullName, username, password, confirmPassword, gender } = req.body;
