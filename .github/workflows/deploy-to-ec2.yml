@@ -32,7 +32,7 @@ jobs:
       - name: Restart PM2 process
         run: cd /var/www/html/nawwa-node-socketio-mongo-api && sudo pm2 restart poc --update-env
 
-      - name: Display last 20 lines of PM2 logs
+      - name: Display live PM2 logs for 1 minute
         run: |
           cd /var/www/html/nawwa-node-socketio-mongo-api
-          sudo pm2 logs poc --lines 20 --nostream
+          timeout 30 sudo pm2 logs poc
