@@ -36,5 +36,3 @@ jobs:
         run: |
           cd /var/www/html/nawwa-node-socketio-mongo-api
           sudo pm2 logs poc --lines 20 --nostream
-
-          
