@@ -1,4 +1,3 @@
-
 name: Deploy to EC2
 
 on:
@@ -32,3 +31,8 @@ jobs:
   
       - name: Restart PM2 process
         run: cd /var/www/html/nawwa-node-socketio-mongo-api && sudo pm2 restart poc --update-env
+
+      - name: Display PM2 logs
+        run: |
+          cd /var/www/html/nawwa-node-socketio-mongo-api
+          sudo pm2 logs poc --lines 20
