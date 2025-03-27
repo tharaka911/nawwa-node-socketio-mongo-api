@@ -70,8 +70,8 @@ export const signup = async (req, res) => {
 
 export const login = async (req, res) => {
 
-  const secret = await getSecret();
-  console.log("Using Secret in login:", secret);
+  // const secret = await getSecret();
+  // console.log("Using Secret in login:", secret);
   
   console.log("login controller invoked");
   logger.info("login controller invoked");
