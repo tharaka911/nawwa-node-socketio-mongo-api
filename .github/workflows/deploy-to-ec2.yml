@@ -1,3 +1,4 @@
+
 name: Deploy to EC2
 
 on:
@@ -22,17 +23,12 @@ jobs:
       - name: Create .env file dynamically
         run: |
           cd /var/www/html/nawwa-node-socketio-mongo-api
-          echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
-          echo MONGO_URI=${{ secrets.MONGO_URI }} >> .env
-          echo PORT=${{ vars.PORT }} >> .env
+          sudo sh -c 'echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env'
+          sudo sh -c 'echo MONGO_URI=${{ secrets.MONGO_URI }} >> .env'
+          sudo sh -c 'echo PORT=${{ vars.PORT }} >> .env'
 
       - name: Install dependencies
         run: cd /var/www/html/nawwa-node-socketio-mongo-api && sudo npm install
   
       - name: Restart PM2 process
         run: cd /var/www/html/nawwa-node-socketio-mongo-api && sudo pm2 restart poc --update-env
-         
-
-
-
-
