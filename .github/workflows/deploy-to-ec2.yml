@@ -22,8 +22,8 @@ jobs:
       - name: Create .env file dynamically
         run: |
           cd /var/www/html/nawwa-node-socketio-mongo-api
-          sudo sh -c 'echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env'
           sudo sh -c 'echo MONGO_URI=${{ secrets.MONGO_URI }} >> .env'
+          sudo sh -c 'echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env'
           sudo sh -c 'echo PORT=${{ vars.PORT }} >> .env'
 
       - name: Install dependencies
